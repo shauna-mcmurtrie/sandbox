@@ -1,0 +1,43 @@
+{
+  "buildpacks": [
+    {
+      "url": "https://github.com/streetteam/heroku-buildpack-monorepo"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "APP_BASE": "asgard",
+    "ASGARD_SECRET_KEY": "{secret_key}",
+    "STREETTEAM_SECRET_KEY": "{secret_key}",
+    "DEBUG": "False",
+    "AWS_ACCESS_KEY_ID": "AKIAJM7YPNKY7SYTWEYA",
+    "AWS_SECRET_ACCESS_KEY": "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",
+    "AWS_STORAGE_BUCKET_NAME": "streetteam-dev",
+    "AWS_DEFAULT_REGION": "eu-west-2",
+    "AIRFLOW_HOME": "/app/etl/airflow",
+    "AIRFLOW__CELERY__BROKER_URL": "sqla+$DATABASE_URL",
+    "AIRFLOW__CELERY__CELERYD_CONCURRENCY": "4",
+    "AIRFLOW__CELERY__CELERY_RESULT_BACKEND": "db+$DATABASE_URL",
+    "AIRFLOW__CORE__EXECUTOR": "CeleryExecutor",
+    "AIRFLOW__CORE__FERNET_KEY": "Wmkm3-Aac2j1yKy97koueXbZYqBuwwNFM4JDaGu04ko=",
+    "AIRFLOW__CORE__LOAD_EXAMPLES": "False",
+    "AIRFLOW__CORE__SQL_ALCHEMY_CONN": "$DATABASE_URL",
+    "AIRFLOW__WEBSERVER__AUTHENTICATE": "True",
+    "AIRFLOW__WEBSERVER__AUTH_BACKEND": "airflow.contrib.auth.backends.password_auth",
+  },
+  "addons": [
+    {
+    "addon": "heroku-postgresql",
+    "plan": "hobby-dev",
+    "as": "DATABASE",
+    "name": “airflow-db"
+    },
+    {
+      "addon": "papertrail",
+      "plan": "choklad",
+      "name": “airflow-logs"
+    }
+  ]
+}
