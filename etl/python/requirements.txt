@@ -34,7 +34,7 @@ gunicorn==19.3.0
 idna==2.6
 itsdangerous==0.24
 JayDeBeApi==1.1.1
-Jinja2==2.8.1
+Jinja2==2.11.3
 jmespath==0.9.3
 JPype1==0.6.2
 kombu==4.1.0
